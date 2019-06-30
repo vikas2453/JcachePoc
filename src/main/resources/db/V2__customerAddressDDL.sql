@@ -5,7 +5,7 @@ varchar(100) firstLine,
 	varchar(50) City;
 	varchar(15) zipCode;
 	primary key (addressId),
-)
+);
 
 insert into Address(1, '1105 fort clarke', 'Gainesville, '32606');
 
