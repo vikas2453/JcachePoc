@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 
 import com.google.gson.Gson;
 
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 
 @Aspect
@@ -36,7 +35,7 @@ public class LoggingAspectConfig {
 		
 	}
 
-	@Before("execution(* com.mindtree.poc.JcachePoc.service*.*.*(..))")
+	@Before("execution(* com.mindtree.poc.JcachePoc.service*.*.*(..)) && @annotation(Log)")
 	public void logBefore(JoinPoint joinPoint) {
 		if(log.isDebugEnabled()) {
 			Object[] args= joinPoint.getArgs();
@@ -50,13 +49,13 @@ public class LoggingAspectConfig {
 		}
 	}
 
-	@AfterReturning(pointcut = "execution(* com.mindtree.poc.JcachePoc.service*.*.*(..))", returning = "result")
+	@AfterReturning(pointcut = "execution(* com.mindtree.poc.JcachePoc.service*.*.*(..)) && @annotation(Log)", returning = "result")
 	public void logAfter(JoinPoint joinPoint, Object result) {
 		if (log.isDebugEnabled() && result!=null) {			
 			log.debug("Method returned:" + 
 					joinPoint.getSignature().getName() + ", Result: " + result.getClass().getName()+" -->"+result);
 		}
-		log.info(gson.toJson(result));
+		//log.info(gson.toJson(result));
 	}
 
 }
