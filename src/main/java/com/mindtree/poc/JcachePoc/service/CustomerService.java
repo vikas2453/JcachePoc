@@ -3,7 +3,7 @@ package com.mindtree.poc.JcachePoc.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.mindtree.poc.JcachePoc.config.Catche;
+import com.mindtree.poc.JcachePoc.config.Cache;
 import com.mindtree.poc.JcachePoc.model.Customer;
 import com.mindtree.poc.JcachePoc.repo.CustomerRepo;
 
@@ -16,7 +16,7 @@ public class CustomerService {
 	@Autowired
 	private CustomerRepo customerRepo;
 
-	@Catche
+	@Cache
 	public Customer getCustomerDetails(Integer customerId) {
 		Customer cust =customerRepo.getOne((long) customerId);
 		log.info("Fetching customer details: "+cust );

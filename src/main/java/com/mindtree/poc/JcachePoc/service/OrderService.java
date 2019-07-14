@@ -2,7 +2,7 @@ package com.mindtree.poc.JcachePoc.service;
 
 import org.springframework.stereotype.Component;
 
-import com.mindtree.poc.JcachePoc.config.Catche;
+import com.mindtree.poc.JcachePoc.config.Cache;
 import com.mindtree.poc.JcachePoc.model.Order;
 
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class OrderService {
 
-	@Catche
+	@Cache
 	public Order getOrderDetails( Integer orderId) {
 		log.debug("Creating a new order");
 		Order order = new Order( orderId, "this is a sample order");
