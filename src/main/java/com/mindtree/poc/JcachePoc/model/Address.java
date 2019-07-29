@@ -25,7 +25,7 @@ public class Address  {
 	private long addressId;
 	
 	private  String firstLine;
-	private String secondline;
+	private String secondLine;
 	private String City;
 	private String zipCode;
 

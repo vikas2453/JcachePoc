@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 public class Config {
 
-	@Value("{flyway.sqlLocation}")
+	@Value("${flyway.sqlLocation}")
 	private String sqlLocation;
 	
 	@Value("#{'${cacheEnabledDomain}'.split(',')}") 

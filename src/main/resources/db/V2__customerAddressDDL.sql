@@ -1,23 +1,10 @@
-create table Address(
-addressId int not null, 
-varchar(100) firstLine, 
-	varchar(100) secondline;
-	varchar(50) City;
-	varchar(15) zipCode;
-	primary key (addressId),
-);
+create table Address(address_Id int not null, first_Line varchar(100) ,second_line varchar(100), City varchar(50),
+zip_Code varchar(15) ,primary key (address_Id));
 
-insert into Address(1, '1105 fort clarke', 'Gainesville, '32606');
 
-Create table customer( 
-	customerId int not null, 
-	
-	varchar(50) firstName;
-	
-	varchar(50) LastName, 
-	
-	AddressId int,
-	
-	primary key (customerId),
-	
-	FOREIGN KEY (AddressId) REFERENCES Address(AddressId));
+Create table Customer( customer_Id int not null, 	
+	first_Name varchar(50),	
+	Last_Name varchar(50),	
+	Address_Id int,	
+	primary key (customer_Id),	
+	FOREIGN KEY (Address_Id) REFERENCES Address(Address_Id));
